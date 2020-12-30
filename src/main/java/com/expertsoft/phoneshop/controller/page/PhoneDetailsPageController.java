@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import static com.expertsoft.phoneshop.PhoneShopConstants.PHONE_DETAILS_PATH;
+import static com.expertsoft.phoneshop.PhoneShopConstants.PHONES_PATH;
 
 @Controller
-@RequestMapping(PHONE_DETAILS_PATH)
+@RequestMapping(PHONES_PATH)
 public class PhoneDetailsPageController {
 
     private static final String PHONE_DETAILS_PAGE = "phoneDetailsPage";

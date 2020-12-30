@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
-import static com.expertsoft.phoneshop.PhoneShopConstants.PHONE_LIST_PATH;
+import static com.expertsoft.phoneshop.PhoneShopConstants.PHONES_PATH;
 
 @Controller
-@RequestMapping(PHONE_LIST_PATH)
+@RequestMapping(PHONES_PATH)
 public class PhoneListPageController {
 
     private static final String PHONE_LIST_PAGE = "phoneListPage";

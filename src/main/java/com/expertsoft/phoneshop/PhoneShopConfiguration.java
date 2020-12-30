@@ -15,7 +15,7 @@ public class PhoneShopConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController(LOGIN_PATH).setViewName(LOGIN_PAGE);
-        registry.addViewController(ADMIN_ROOT_PATH).setViewName(ADMIN_PANEL_PAGE);
-        registry.addRedirectViewController(ROOT_PATH, PHONE_LIST_PATH);
+        registry.addViewController(ADMIN_PATH).setViewName(ADMIN_PANEL_PAGE);
+        registry.addRedirectViewController(ROOT_PATH, PHONES_PATH);
     }
 }
