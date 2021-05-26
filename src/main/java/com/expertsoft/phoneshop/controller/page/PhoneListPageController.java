@@ -22,8 +22,8 @@ public class PhoneListPageController {
     private PhoneService phoneService;
 
     @GetMapping
-    public String getPhoneList(Model model) {
-        model.addAttribute(PHONES, phoneService.getPhonesPage(Pageable.unpaged()));
+    public String getPhoneList(Model model, Pageable pageable) {
+        model.addAttribute(PHONES, phoneService.getPhonesPage(pageable));
 
         return PHONE_LIST_PAGE;
     }
