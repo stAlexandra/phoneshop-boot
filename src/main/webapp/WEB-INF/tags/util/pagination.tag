@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ attribute name="basePath" required="true" type="java.lang.String" %>
 <%@ attribute name="page" required="true" type="org.springframework.data.domain.Page" %>
+<%@ attribute name="maxPages" required="false" type="java.lang.Integer" %>
 
 <c:if test="${not empty page}">
   <c:url var="prevPageUrl" value="${basePath}">
@@ -9,7 +10,14 @@
   <c:url var="nextPageUrl" value="${basePath}">
     <c:param name="page" value="${page.nextOrLastPageable().getPageNumber()}"/>
   </c:url>
-  <c:set var="pagesToDisplay" value="${page.totalPages}"/>
+  <c:choose>
+    <c:when test="${not empty maxPages}">    
+      <c:set var="pagesToDisplay" value="${page.totalPages < maxPages ? page.totalPages : maxPages}"/>
+    </c:when>
+    <c:otherwise>
+      <c:set var="pagesToDisplay" value="${page.totalPages}"/>
+    </c:otherwise>
+  </c:choose>
   
   <nav>
     <ul class="pagination justify-content-center">
