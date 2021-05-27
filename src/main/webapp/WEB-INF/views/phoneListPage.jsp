@@ -7,6 +7,11 @@
     <div class="row justify-content-center font-italic mb-3">
         Found <c:out value="${phones.totalElements}"/> results!
     </div>
+    <div class="row justify-content-center mb-3">
+        <div class="col-4">
+            <util:search basePath="/phones"/>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
