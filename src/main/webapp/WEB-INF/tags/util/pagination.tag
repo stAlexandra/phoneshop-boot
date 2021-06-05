@@ -6,9 +6,27 @@
 <c:if test="${not empty page}">
   <c:url var="prevPageUrl" value="${basePath}">
     <c:param name="page" value="${page.previousOrFirstPageable().getPageNumber()}"/>
+    <c:if test="${not empty param.query}">
+        <c:param name="query" value="${param.query}"/>
+    </c:if>
+    <c:if test="${not empty param.fromPrice}">
+        <c:param name="fromPrice" value="${param.fromPrice}"/>
+    </c:if>
+    <c:if test="${not empty param.toPrice}">
+        <c:param name="toPrice" value="${param.toPrice}"/>
+    </c:if>
   </c:url>
   <c:url var="nextPageUrl" value="${basePath}">
     <c:param name="page" value="${page.nextOrLastPageable().getPageNumber()}"/>
+    <c:if test="${not empty param.query}">
+        <c:param name="query" value="${param.query}"/>
+    </c:if>
+    <c:if test="${not empty param.fromPrice}">
+        <c:param name="fromPrice" value="${param.fromPrice}"/>
+    </c:if>
+    <c:if test="${not empty param.toPrice}">
+        <c:param name="toPrice" value="${param.toPrice}"/>
+    </c:if>
   </c:url>
   <c:choose>
     <c:when test="${not empty maxPages}">    
@@ -30,6 +48,15 @@
       <c:forEach begin="0" end="${pagesToDisplay - 1}" varStatus="status">
         <c:url var="pageUrl" value="${basePath}">
           <c:param name="page" value="${status.index}"/>
+          <c:if test="${not empty param.query}">
+              <c:param name="query" value="${param.query}"/>
+          </c:if>
+          <c:if test="${not empty param.fromPrice}">
+              <c:param name="fromPrice" value="${param.fromPrice}"/>
+          </c:if>
+          <c:if test="${not empty param.toPrice}">
+              <c:param name="toPrice" value="${param.toPrice}"/>
+          </c:if>
         </c:url>
         <li class="page-item ${page.getNumber() == status.index ? 'active' : ''}">
           <a class="page-link" href="${pageUrl}">${status.count}</a>
