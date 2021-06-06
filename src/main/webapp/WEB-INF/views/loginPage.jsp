@@ -9,7 +9,12 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="perform_login">
+                        <c:if test="${not empty param.error and param.error eq true}">
+                            <div class="alert alert-danger" role="alert">
+                                Unable to log in. Please check your username and password and try again.
+                            </div>
+                        </c:if>
                         <div class="form-group row">
                             <label for="username" class="col-sm-3 col-form-label">
                                 Username:
