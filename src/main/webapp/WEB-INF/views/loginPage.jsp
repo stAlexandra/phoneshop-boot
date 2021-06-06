@@ -30,7 +30,7 @@
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                         <div class="row justify-content-center">
-                            Login via GitHub >>
+                            <a href="/oauth2/authorization/github">Login via GitHub >></a>
                         </div>
                     </form>
                 </div>
