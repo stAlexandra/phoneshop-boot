@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ attribute name="basePath" required="true" type="java.lang.String" %>
 
 <div class="card">
     <div class="card-body">
@@ -22,10 +21,13 @@
             <input type="text" class="form-control" id="toPriceInput" name="toPrice" value="${param.toPrice}">
             </div>
         </div>
+        <c:if test="${not empty param.sort}">
+            <input type="hidden" name="sort" value="${param.sort}"/>
+        </c:if>
         <button type="submit" class="btn btn-primary">Search</button>
         </form>
     </div>
 </div>
 <div class="row justify-content-center">
-    <a href="<c:url value="${basePath}"/>">Reset search parameters</a>
+    <a href="<c:url value="/phones"/>">Reset search parameters</a>
 </div>

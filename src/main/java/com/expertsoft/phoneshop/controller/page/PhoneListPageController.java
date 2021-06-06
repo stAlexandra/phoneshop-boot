@@ -35,12 +35,6 @@ public class PhoneListPageController {
     }
 
     @GetMapping
-    public String getPhoneList(Model model, Pageable pageable) {
-        model.addAttribute(PHONES, phoneFacade.getPhonesPage(pageable));
-        return PHONE_LIST_PAGE;
-    }
-
-    @GetMapping(params = { "query", "fromPrice", "toPrice" })
     public String getPhoneListByQueryAndPriceRange(@RequestParam(defaultValue = "") String query,
             @RequestParam(defaultValue = "") String fromPrice,
             @RequestParam(defaultValue = "") String toPrice, 
