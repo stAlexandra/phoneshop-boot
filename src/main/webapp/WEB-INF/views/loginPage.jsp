@@ -2,14 +2,19 @@
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/common" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <common:page pageTitle="Login" showMenu="false">
-    <div class="row mb-3">
+    <div class="row mb-3 mx-3">
         <common:back/>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <form>
+                    <form method="POST" action="perform_login">
+                        <c:if test="${not empty param.error and param.error eq true}">
+                            <div class="alert alert-danger" role="alert">
+                                Unable to log in. Please check your username and password and try again.
+                            </div>
+                        </c:if>
                         <div class="form-group row">
                             <label for="username" class="col-sm-3 col-form-label">
                                 Username:
@@ -30,7 +35,7 @@
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                         <div class="row justify-content-center">
-                            Login via GitHub >>
+                            <a href="/oauth2/authorization/github">Login via GitHub >></a>
                         </div>
                     </form>
                 </div>

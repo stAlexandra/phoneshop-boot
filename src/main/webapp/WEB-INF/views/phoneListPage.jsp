@@ -7,13 +7,18 @@
     <div class="row justify-content-center font-italic mb-3">
         Found <c:out value="${phones.totalElements}"/> results!
     </div>
+    <div class="row justify-content-center mb-3">
+        <div class="col-4">
+            <util:search/>
+        </div>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
             <th scope="col">Image</th>
-            <th scope="col">Brand <util:sorting/></th>
-            <th scope="col">Model <util:sorting/></th>
-            <th scope="col">Price <util:sorting/></th>
+            <th scope="col">Brand <util:sorting field="brand"/></th>
+            <th scope="col">Model <util:sorting field="model"/></th>
+            <th scope="col">Price <util:sorting field="price"/></th>
         </tr>
         </thead>
         <tbody>
@@ -22,4 +27,5 @@
         </c:forEach>
         </tbody>
     </table>
+    <util:pagination basePath="/phones" page="${phones}" maxPages="${maxPages}"/>
 </common:page>
