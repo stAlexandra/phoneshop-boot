@@ -2,6 +2,7 @@ package com.expertsoft.phoneshop.persistence.model.user;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.*;
 
 import static com.expertsoft.phoneshop.persistence.model.user.UserRole.ROLE_USER;
@@ -23,6 +24,7 @@ public class PhoneShopUser {
 	private String avatarUrl;
 	private String location;
 	private String company;
+	private LocalDateTime registrationDate;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(
@@ -114,5 +116,13 @@ public class PhoneShopUser {
 
 	public void setCompany(String company) {
 		this.company = company;
+	}
+
+	public LocalDateTime getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(LocalDateTime registrationDate) {
+		this.registrationDate = registrationDate;
 	}
 }

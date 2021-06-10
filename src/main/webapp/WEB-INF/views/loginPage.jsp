@@ -2,7 +2,7 @@
 <%@ taglib prefix="common" tagdir="/WEB-INF/tags/common" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <common:page pageTitle="Login" showMenu="false">
-    <div class="row mb-3">
+    <div class="row mb-3 mx-3">
         <common:back/>
     </div>
     <div class="row justify-content-center">

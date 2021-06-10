@@ -5,8 +5,8 @@
 <c:set var="downArrow" value="&#x25BC;"/>
 <c:set var="sortAsc" value="${field},asc"/>
 <c:set var="sortDesc" value="${field},desc"/>
-<util:phonesPageUrl var="sortAscUrl" sort="${sortAsc}"/>
-<util:phonesPageUrl var="sortDescUrl" sort="${sortDesc}"/>
+<util:pageUrl basePath="/phones" var="sortAscUrl" sort="${sortAsc}"/>
+<util:pageUrl basePath="/phones" var="sortDescUrl" sort="${sortDesc}"/>
 <c:choose>
     <c:when test="${sortAsc eq param.sort}">
         <a href="#" class="btn-link disabled" tabindex="-1" aria-disabled="true"><c:out value="${upperArrow}" escapeXml="false"/></a>

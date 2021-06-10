@@ -1,10 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ attribute name="basePath" required="true" type="java.lang.String" %>
 <%@ attribute name="page" required="false" type="java.lang.String" %>
 <%@ attribute name="sort" required="false" type="java.lang.String" %>
 <%@ attribute name="var" required="true" type="java.lang.String" rtexprvalue="false" %>
 <%@ variable alias="url" name-from-attribute="var" scope="AT_BEGIN" variable-class="java.lang.String"%>
 
-<c:url var="url" value="/phones">
+<c:url var="url" value="${basePath}">
     <c:if test="${not empty page}">
         <c:param name="page" value="${page}"/>
     </c:if>

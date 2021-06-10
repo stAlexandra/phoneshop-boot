@@ -1,5 +1,6 @@
 package com.expertsoft.phoneshop.security.config;
 
+import com.expertsoft.phoneshop.persistence.model.user.UserRole;
 import com.expertsoft.phoneshop.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,6 +33,7 @@ public class PhoneShopSecurityConfiguration extends WebSecurityConfigurerAdapter
 		http
 			.csrf().disable()
 			.authorizeRequests(a -> a
+					.antMatchers(ADMIN_PATH).hasAnyAuthority(UserRole.ROLE_ADMIN)
 					.antMatchers(ROOT_PATH, PHONES_PATH, ERROR_PATH, LOGIN_PATH).permitAll()
 					.antMatchers( "/webjars/**", "/css/**").permitAll()
 					.anyRequest().authenticated()

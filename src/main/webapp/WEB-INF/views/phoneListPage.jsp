@@ -27,5 +27,5 @@
         </c:forEach>
         </tbody>
     </table>
-    <util:pagination page="${phones}" maxPages="${maxPages}"/>
+    <util:pagination basePath="/phones" page="${phones}" maxPages="${maxPages}"/>
 </common:page>

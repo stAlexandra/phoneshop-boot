@@ -19,8 +19,10 @@
     </security:authorize>
     </div>
     <div class="col-4 offset-9">
-        <a href="<c:url value="/admin"/>">
-            <p>Admin panel</p>
-        </a>
+        <security:authorize access="hasAuthority('ROLE_ADMIN')">
+            <a href="<c:url value="/admin"/>">
+                <p>Admin panel</p>
+            </a>
+        </security:authorize>
     </div>
 </div>

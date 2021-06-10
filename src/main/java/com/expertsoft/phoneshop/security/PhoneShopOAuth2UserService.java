@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 
 @Service
@@ -48,7 +49,11 @@ public class PhoneShopOAuth2UserService implements OAuth2UserService<OAuth2UserR
 
 	protected void updatePhoneShopUser(GitHubOAuth2User gitHubUser) {
 		String githubName = gitHubUser.getName();
-		PhoneShopUser phoneShopUser = userRepository.findByUsername(githubName).orElseGet(() -> new PhoneShopUser(githubName));
+		PhoneShopUser phoneShopUser = userRepository.findByUsername(githubName).orElseGet(() -> {
+			PhoneShopUser newUser = new PhoneShopUser(githubName);
+			newUser.setRegistrationDate(LocalDateTime.now());
+			return newUser;
+		});
 		phoneShopUser.setLogin(gitHubUser.getLogin());
 		phoneShopUser.setDisplayName(gitHubUser.getDisplayName());
 		phoneShopUser.setBio(gitHubUser.getBio());
