@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(PHONES_PATH)
-public class PhoneListPageController {
+public class PhoneListPageController extends AbstractPageController {
 
     private static final String PHONE_LIST_PAGE = "phoneListPage";
     private static final String PHONES = "phones";
