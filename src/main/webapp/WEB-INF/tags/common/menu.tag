@@ -12,6 +12,11 @@
             <button type="button" class="btn btn-primary">Login</button>
         </a>
     </security:authorize>
+    <security:authorize access="isAuthenticated()">
+        <a href="<c:url value="/logout"/>">
+            <button type="button" class="btn btn-primary">Logout</button>
+        </a>
+    </security:authorize>
     </div>
     <div class="col-4 offset-9">
         <a href="<c:url value="/admin"/>">

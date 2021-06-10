@@ -43,7 +43,10 @@ public class PhoneShopSecurityConfiguration extends WebSecurityConfigurerAdapter
 			.formLogin()
 				.loginPage(LOGIN_PATH)
 				.loginProcessingUrl(FORM_LOGIN_PROCESSING_PATH)
-				.failureUrl(FORM_LOGIN_ERROR_PATH);
+				.failureUrl(FORM_LOGIN_ERROR_PATH).and()
+			.logout()
+				.logoutSuccessUrl(PHONES_PATH)
+				.permitAll();
 	}
 
 	@Override
